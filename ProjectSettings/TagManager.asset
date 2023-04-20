@@ -3,7 +3,16 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - hasInfo
+  - Winding
+  - Fan
+  - Rotor
+  - Stator
+  - Bearing1
+  - Bearing2
+  - Bearing
+  - Motor
   layers:
   - Default
   - TransparentFX
