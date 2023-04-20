@@ -8,14 +8,14 @@ using TMPro;
 public class Placeindi : MonoBehaviour
 {
     private ARRaycastManager rayManager;
-    public GameObject visual;
+    [SerializeField]public GameObject visual;
     public bool isvisualactive = false;
-    public TextMeshProUGUI infotext;
+    [SerializeField]public TextMeshProUGUI infotext;
 
     private void Start()
     {
         rayManager = FindObjectOfType<ARRaycastManager>();
-        //visual = transform.GetChild(0).gameObject;
+       
         visual.SetActive(false);
 
     }

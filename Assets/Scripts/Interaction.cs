@@ -10,7 +10,7 @@ public class Interaction : MonoBehaviour
     bool expanded,running = false;
 
 
-    //[SerializeField] private GameObject Stator, rotor, fan, bearing1, bearing2, winding;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -51,52 +51,8 @@ public class Interaction : MonoBehaviour
                         break;
                     
                 }
-               /* if (tagname == "Fan")
-                {
-                    Visible("fantext");
-                }
-                if (tagname == "Stator")
-                {
-                    Visible("statortext");
-                }
-                if (tagname == "Winding")
-                {
-                    Visible("windingText");
-                }
-                if (tagname == "Rotor")
-                {
-                    Visible("rotortext");
-                }
-                if (tagname == "Bearing1")
-                {
-                    Visible("bearingtext1");
-                }
-                if (tagname == "Bearing2")
-                {
-                    Visible("bearingtext2");
-                } */
-
-                //switch(tagname):
-
             }
-
-
-        }
-           /* if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit))
-        {
-
-            GameObject go = hit.collider.gameObject;
-            if (go.tag == "Fan")
-            {
-                GameObject.Find("fantext").SetActive(false);
-            }
-
-            if (go.tag == "Rotor")
-            {
-                GameObject.Find("rotortext").SetActive(false);
-                
-            }
-        }*/
+        }    
     }
 
     public void clearTextPanel()
