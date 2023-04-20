@@ -70,6 +70,8 @@ public class Interaction : MonoBehaviour
         {
             GameObject.Find("bearingtext1").transform.localScale = new Vector3(1, 1, 1);
             GameObject.Find("bearingtext2").transform.localScale = new Vector3(1, 1, 1);
+
+            
         }
         else
         {
