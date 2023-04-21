@@ -5,10 +5,9 @@ using UnityEngine;
 public class Interaction : MonoBehaviour
 {
     Ray ray;
-    private string tagname;
     Animator anim;
     bool expanded,running = false;
-    GameObject name;
+    private GameObject obj_name;
     [SerializeField]
     List<GameObject> motorParts = new List<GameObject>();
     [SerializeField]
@@ -37,17 +36,16 @@ public class Interaction : MonoBehaviour
                 Debug.Log("Clicking");
 
 
-                name = hit.collider.gameObject;
-                if (motorParts.Contains(name))
+                obj_name = hit.collider.gameObject;
+                if (motorParts.Contains(obj_name))
                 {
-                    int nameIndex = motorParts.IndexOf(name);
+                    int nameIndex = motorParts.IndexOf(obj_name);
                     visibleText(nameIndex);
                 }
             }
         }    
     }
 
-    
 
     public void clearTextPanel()
     {
@@ -83,33 +81,23 @@ public class Interaction : MonoBehaviour
 
     }
 
-
-
     public void MotorRunning()
     {
 
         running = !running;
         anim.SetBool("isRunning", running);
 
-       
     }
 
     public void MotorExpand()
     {
-        
-        if (!expanded)
-        {
-            anim.SetBool("isExpand", true);
-            expanded = true;
-        }
-        else
+        expanded = !expanded;
+        anim.SetBool("isExpand", running);
+
+        if (expanded)
         {
             clearTextPanel();
-            anim.SetBool("isExpand", false);
-            expanded = false;
         }
-
-
 
     }
 
