@@ -43,10 +43,6 @@ public class Interaction : MonoBehaviour
                     int nameIndex = motorParts.IndexOf(name);
                     visibleText(nameIndex);
                 }
-
-
-
-             
             }
         }    
     }
