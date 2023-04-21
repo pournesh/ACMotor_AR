@@ -8,7 +8,7 @@ public class Interaction : MonoBehaviour
     private string tagname;
     Animator anim;
     bool expanded,running = false;
-
+    GameObject name;
     [SerializeField]
     List<GameObject> motorParts = new List<GameObject>();
     [SerializeField]
@@ -37,7 +37,7 @@ public class Interaction : MonoBehaviour
                 Debug.Log("Clicking");
 
 
-                GameObject name = hit.collider.gameObject;
+                name = hit.collider.gameObject;
                 if (motorParts.Contains(name))
                 {
                     int nameIndex = motorParts.IndexOf(name);
@@ -51,7 +51,6 @@ public class Interaction : MonoBehaviour
 
     public void clearTextPanel()
     {
-        
 
         foreach (GameObject go in panels)
         {
