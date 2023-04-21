@@ -92,12 +92,13 @@ public class Interaction : MonoBehaviour
     public void MotorExpand()
     {
         expanded = !expanded;
-        anim.SetBool("isExpand", running);
 
-        if (expanded)
+        if (!expanded)
         {
             clearTextPanel();
         }
+        anim.SetBool("isExpand", expanded);
+
 
     }
 
