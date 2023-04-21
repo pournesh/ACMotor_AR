@@ -2818,6 +2818,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65c8dc50d161b78408a2cb33f6d14e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  motorParts:
+  - {fileID: 3158508670602923026}
+  - {fileID: 3158508670602923110}
+  - {fileID: 3158508670602923030}
+  - {fileID: 3158508670602923133}
+  - {fileID: 3158508670602923031}
+  - {fileID: 3158508670602923112}
+  panels:
+  - {fileID: 1986321036915154240}
+  - {fileID: 1880648798528290983}
+  - {fileID: 6545495340729346376}
+  - {fileID: 4729567756885764547}
+  - {fileID: 426868390460748527}
+  - {fileID: 7120056341775705}
 --- !u!1 &3158508670602923119
 GameObject:
   m_ObjectHideFlags: 0

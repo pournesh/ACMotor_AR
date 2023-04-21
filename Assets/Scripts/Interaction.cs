@@ -9,6 +9,11 @@ public class Interaction : MonoBehaviour
     Animator anim;
     bool expanded,running = false;
 
+    [SerializeField]
+    List<GameObject> motorParts = new List<GameObject>();
+    [SerializeField]
+    List<GameObject> panels = new List<GameObject>();
+
 
     
 
@@ -30,64 +35,73 @@ public class Interaction : MonoBehaviour
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
                 Debug.Log("Clicking");
-                tagname = hit.collider.gameObject.tag;
 
-                switch (tagname)
+
+                GameObject name = hit.collider.gameObject;
+                if (motorParts.Contains(name))
                 {
-                    case "Fan":
-                        Visible("fantext");
-                        break;
-                    case "Stator":
-                        Visible("statortext");
-                        break;
-                    case "Winding":
-                        Visible("windingText");
-                        break;
-                    case "Rotor":
-                        Visible("rotortext");
-                        break;
-                    case "Bearing":
-                        Visible("Bearing");
-                        break;
-                    
+                    int nameIndex = motorParts.IndexOf(name);
+                    visibleText(nameIndex);
                 }
+
+
+
+             
             }
         }    
     }
 
+    
+
     public void clearTextPanel()
     {
-        foreach (GameObject go in GameObject.FindGameObjectsWithTag("hasInfo"))
+        
+
+        foreach (GameObject go in panels)
         {
-            go.transform.localScale = new Vector3(0, 0, 0);
+            go.transform.localScale = Vector3.zero;
         }
     }
 
-    void Visible(string name)
+
+
+    void visibleText(int pos)
     {
         clearTextPanel();
-        if (name == "Bearing")
-        {
-            GameObject.Find("bearingtext1").transform.localScale = new Vector3(1, 1, 1);
-            GameObject.Find("bearingtext2").transform.localScale = new Vector3(1, 1, 1);
 
-            
+        if(pos ==0 || pos==5)
+        {
+            scaleup(0);
+            scaleup(5);
         }
         else
         {
-            GameObject.Find(name).transform.localScale = new Vector3(1, 1, 1);
+            scaleup(pos);
 
         }
 
+    }
+
+    void scaleup(int x)
+    {
+        panels[x].transform.localScale = Vector3.one;
+
+    }
 
 
 
+    public void MotorRunning()
+    {
+
+        running = !running;
+        anim.SetBool("isRunning", running);
+
+       
     }
 
     public void MotorExpand()
     {
-
-
+        
         if (!expanded)
         {
             anim.SetBool("isExpand", true);
@@ -100,21 +114,8 @@ public class Interaction : MonoBehaviour
             expanded = false;
         }
 
-    }
 
-    public void MotorRunning()
-    {
-        if (!running)
-        {
-            anim.SetBool("isRunning", true);
-            running = true;
-        }
-        else
-        {
-            
-            anim.SetBool("isRunning", false);
-            running = false;
-        }
+
     }
 
 
